@@ -1,0 +1,145 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Products";
+}
+@{ Layout = null; }
+
+<html>
+<head>
+
+    <link href="~/css/Product.css" rel="stylesheet" />
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+    <script src="~/js/jquery/dist/jquery.js"></script>
+    <script src="~/js/angular.js"></script>
+</head>
+
+<body ng-app="Product" ng-controller="ProductController">
+    <header>
+        <div class="logo"><a href="#">E_Commerce Shopping</a></div>
+        <div class="menu">
+            <a href="#">
+                <ion-icon name="close" class="close"></ion-icon>
+            </a>
+
+            <ul>
+                <li><a href="#" class="under">HOME</a></li>
+                <li><a href="#" class="under">SHOP</a></li>
+                <li><a href="#" class="under">OUR PRODUCTS</a></li>
+                <li><a href="#" class="under">CONTACT US</a></li>
+                <li><a href="#" class="under">ABOUT US</a></li>
+            </ul>
+        </div>
+      
+        <div class="heading">
+            <ul>
+                <li><a href="#" class="under">HOME</a></li>
+                <li><a href="#" class="under">SHOP</a></li>
+                <li><a href="#" class="under">OUR PRODUCTS</a></li>
+                <li><a href="#" class="under">CONTACT US</a></li>
+                <li><a href="#" class="under">ABOUT US</a></li>
+            </ul>
+        </div>
+        <div class="heading1">
+            <ion-icon name="menu" class="ham"></ion-icon>
+        </div>
+    </header>
+    <section>
+        <div class="section">
+            <div class="section1">
+                <div class="img-slider">
+                    <img src="https://images.pexels.com/photos/6347888/pexels-photo-6347888.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" class="img">
+                    <img src="https://images.pexels.com/photos/3962294/pexels-photo-3962294.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" class="img">
+                    <img src="https://images.pexels.com/photos/2292953/pexels-photo-2292953.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="" class="img">
+                    <img src="https://images.pexels.com/photos/1229861/pexels-photo-1229861.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" class="img">
+                    <img src="https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" class="img">
+                </div>
+
+            </div>
+            <div>
+                <table class="table table-sm m-0 table-striped">
+                    <thead class="bg-primary-500">
+                        <tr>
+                            <th>
+                                Product Name
+                            </th>
+                            <th>
+                                Product Price
+                            </th>
+
+                            <th>
+                                Product Quantity
+                            </th>
+                            <th>
+                                Total Amount
+                            </th>
+                         <th>
+                             Action
+                         </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="cart in addeditems ">
+                            <td>{{cart.name}}</td>
+                            <td>{{cart.price}}</td>
+                            <td>{{cart.quantity}}</td>
+                          
+                            <td>{{cart.totalamount}}</td>
+                            <td><button ng-click="removeitem(card.itemid)">Remove Item</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="section2">
+                <div class="container">
+                    <div class="items" ng-repeat="product in productItem">
+
+                        <div class="img img1"><img src="~/Images/{{product.photo}}" alt=""></div>
+
+
+                        <div><button ng-click="addtocart(product.itemid,product.productName,product.price)">Add to Card</button></div>
+                        <div class="name">{{product.productName}}</div>
+                        <div class="price">{{product.price}}</div>
+                        <div class="info">{{product.info}}</div>
+                    </div>
+
+                  
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+    <footer>
+        <div class="footer0">
+            <h1>E_Commerce Shopping</h1>
+        </div>
+        <div class="footer1 ">
+            Connect with us at<div class="social-media">
+                <a href="#">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+                <a href="#">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+                <a href="#">
+                    <ion-icon name="logo-youtube"></ion-icon>
+                </a>
+                <a href="#">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+                <a href="#">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer3">Copyright © <h4>E_Commerce</h4> 2021-2028</div>
+    </footer>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <script src="~/js/Product.js"></script>
+
+</body>
+
+</html>
